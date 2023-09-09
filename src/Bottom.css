@@ -1,0 +1,107 @@
+:root{
+    --blue: #48befe;
+    }
+    .bottom-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        max-height: 80vh; /* Set a maximum height for the bottom sheet */
+        background-color: #ffffff;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.9s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        transform-origin: bottom;
+        z-index: 1000;
+        overflow-y: auto; /* Enable scrolling within the bottom sheet */
+      }
+      
+      /* Styles for different snap points */
+      .bottom-sheet.closed {
+        transform: translateY(50%);
+      }
+      
+      .bottom-sheet.half-open {
+        transform: translateY(70%);
+      }
+      
+      .bottom-sheet.fully-open {
+        transform: translateY(0);
+      }
+      
+      /* Handle styles */
+      .handle {
+        background-color: #e0e0e0;
+        height: 4px;
+        width: 40px;
+        margin: 0 auto;
+        margin-top: 8px;
+        border-radius: 2px;
+        cursor: grab; /* Change cursor when hovering over the handle */
+      }
+      
+      /* Control buttons styles */
+      .control-buttons {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 5px;
+        margin: 20px;
+      }
+      
+      .control-buttons button {
+        background-color: var(--blue);
+        color: #fff;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 15px;
+        margin-right: 15px;
+        outline: none;
+        
+    
+        
+      }
+      
+    
+      button:hover{
+        cursor: pointer;
+        color: var(--blue);
+        background: transparent;
+        border: 2px solid var(--blue);
+      }
+      
+      ::-webkit-scrollbar{
+        display: none;
+      }
+    
+      /* Content styles */
+      .content {
+        padding: 16px;
+      }
+      
+      /* Additional styles for a more polished appearance */
+      .content h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+        color: #333;
+      }
+      
+      .content p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+      }
+      
+      /* Styles for the dragging effect */
+      .bottom-sheet.dragging {
+        transition: none; /* Remove transition during drag */
+        cursor: grabbing;
+      }
+      
+      /* Responsive styles for smaller screens */
+      @media (max-width: 768px) {
+        .bottom-sheet {
+          max-height: 60vh; /* Adjust the maximum height for smaller screens */
+        }
+      }
